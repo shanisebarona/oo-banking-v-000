@@ -15,10 +15,10 @@ class Transfer
   end
   
   def execute_transaction
-    
-    @sender.balance -= @amount #@sender.balance = @sender.balance - @amount
-    @receiver.balance += @amount
-    @status = "complete"
+    unless status == "complete"
+      @sender.balance -= @amount #@sender.balance = @sender.balance - @amount
+      @receiver.balance += @amount
+      @status = "complete"
     # transfer happening once
     #rejects a transfer if sender !valid
     if @sender.valid? == false
