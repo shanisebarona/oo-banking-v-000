@@ -19,12 +19,13 @@ class Transfer
       @sender.balance -= @amount #@sender.balance = @sender.balance - @amount
       @receiver.balance += @amount
       @status = "complete"
+    end
     # transfer happening once
     #rejects a transfer if sender !valid
-    if @sender.valid? == false
-      @status = "rejected"
-      "Transaction rejected. Please check your account balance."
-    end
+      if @sender.valid? == false
+        @status = "rejected"
+        "Transaction rejected. Please check your account balance."
+      end
   end
   
   def reverse_transfer
