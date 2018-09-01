@@ -22,8 +22,8 @@ class Transfer
     end
       # transfer happening once
       #rejects a transfer if sender !valid
-    if @sender.valid? == false
-      @status = "rejected"
+    if sender.valid? == false
+      self.status = "rejected"
       "Transaction rejected. Please check your account balance."
     end
   end
